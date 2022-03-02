@@ -25,7 +25,7 @@ Vercel: https://simplegwei.com
 
 ### Important notes
 
-This is a super simple repo- everything is in ```index.js``` and only uses 2 external libraries! You'll need to ensure a <b>valid api key </br> in your .env file which I mention below
+This is a super simple repo- everything is in ```index.js``` and only uses 2 external libraries! You'll need to ensure a <b>valid api key </b> in your .env file which I mention below
 
 - Run npm install && npm run dev, then go to http://localhost:3000/
 - Edit frontend in index.js
