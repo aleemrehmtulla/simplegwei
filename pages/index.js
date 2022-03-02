@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import swal from 'sweetalert'
-import {BsFillMoonStarsFill} from 'react-icons/bs'
+import {BsFillMoonStarsFill, BsGithub} from 'react-icons/bs'
 export default function Home() {
 
   const [gas, setGas] = useState("~~");
@@ -101,9 +101,12 @@ export default function Home() {
       </Head>
       
       <div className="flex    px-20  justify-end h-full">
-       <button className='hover:cursor-pointer' onClick={darkFunction} >
-        <BsFillMoonStarsFill className={`${dark ? 'fill-white' : 'fill-black'} `} size={40}/>
-        </button>
+      <button className='hover:cursor-pointer pr-6'> 
+       <a href='https://github.com/aleemrehmtulla/simplegwei'><BsGithub className={`${dark ? 'fill-white' : 'fill-black'} `} size={40}/></a> 
+      </button> 
+      <button className='hover:cursor-pointer' onClick={darkFunction} >
+      <BsFillMoonStarsFill className={`${dark ? 'fill-white' : 'fill-black'} `} size={40}/>
+      </button>
       </div>
 
       <div className='grid pb-40 md:pb-40 place-content-center'>
