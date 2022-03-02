@@ -92,7 +92,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <div className="flex px-20 justify-end h-full">
+      <div className="flex px-7 md:px-20 justify-end h-full">
         <button className='hover:cursor-pointer pr-6'> 
           <a target="_blank" rel="noreferrer" href='https://github.com/aleemrehmtulla/simplegwei'>
             <BsGithub size={40} className={`${dark ? 'fill-white' : 'fill-black'}`}/>
