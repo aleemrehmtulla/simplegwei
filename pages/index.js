@@ -64,7 +64,7 @@ export default function Home() {
       setSecondsSince(timeSince)}, 1000);
   }
 
-  useEffect((callApi, timeFunction) => {
+  useEffect(() => {
     callApi()
     timeFunction()
   }, [])
