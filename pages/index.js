@@ -103,7 +103,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div className='grid pb-40 md:pb-40 place-content-center'>
+      <div className='grid pb-40 md:pb-50 place-content-center'>
         <div className=" text-center">
           <h1 className={`${dark ? 'text-gray-300' : 'text-black'} text-4xl md:text-6xl  font-bold `} >ETH Gas Tracker</h1>
           <p className={`${dark ? 'text-gray-300' : 'text-black'} font-semibold  text-xl md:text-3xl pt-2 `}>ETH Price ${price} USD</p>
