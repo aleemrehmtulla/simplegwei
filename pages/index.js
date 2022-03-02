@@ -15,7 +15,7 @@ export default function Home() {
     let myStatus = true
 
     // call the api
-    const res = await fetch("https://middle.onrender.com/currentgas", {
+    const res = await fetch("https://api.simplegwei.com/currentgas", {
       method: "POST",
       headers: {"authorization": apiKey, 'Content-Type': 'application/json' },
       }).catch(function() {
