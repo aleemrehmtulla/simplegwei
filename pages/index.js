@@ -26,7 +26,6 @@ export default function Home() {
     if(myStatus===true){
     const result = await res.json()
       
-      
     // set gas and eth price
     setPrice(result.eth)
     const gas = result.gas / 1000000000;
@@ -62,7 +61,6 @@ export default function Home() {
     timeFunction()
   }, [])
    
-    
  
   return (
     <div className='h-screen w-screen grid pb-20 md:pb-0  place-content-center bg-gray-200'>
@@ -79,7 +77,7 @@ export default function Home() {
     
       <div className="grid place-content-center mt-8 mr-3 ml-3 ">
         <div className='text-center border-solid px-9 py-8 md:px-32 md:py-18 rounded-3xl border-[6px] border-black  w-fit '>
-            <div className='flex'><h1 className='text-8xl md:font-bold font-semibold'>{gas}  </h1><h1 className='text-7xl pt-3 pl-1'>⛽️</h1></div>
+            <div className='flex'><h1 className='text-8xl md:font-bold font-semibold'>{gas}</h1><h1 className='text-7xl pt-3 pl-1'>⛽️</h1></div>
             <p className='text-2xl w-full font-medium pt-4'>This is {level}</p>
             <p className='pt-4'>Last updated {secondsSince} seconds ago</p> 
         </div>
