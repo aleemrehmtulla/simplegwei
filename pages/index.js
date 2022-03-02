@@ -1,47 +1,58 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
-
+import swal from 'sweetalert'
 export default function Home() {
   const [gas, setGas] = useState("~~");
   const [price, setPrice] = useState("~~~.~~");
   const [level, setLevel] = useState("~~~ 😵‍💫");
   const [secondsSince, setSecondsSince] = useState("~");
   
-  const hi = process.env.NEXT_PUBLIC_HOST;
+  // declare your apikey
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   
   async function callApi(){
-  
+    // set a status to catch errors
+    let myStatus = true
+
+    // call the api
     const res = await fetch("https://middle.onrender.com/currentgas", {
       method: "POST",
-      headers: {"authorization": hi, 'Content-Type': 'application/json' },
-  
-      })
-      console.log(hi)
+      headers: {"authorization": apiKey, 'Content-Type': 'application/json' },
+      }).catch(function() {
+        swal("Oops!", "You have lost connection ser!", "error");
+        myStatus = false
+    });
 
-      const result = await res.json()
+    if(myStatus===true){
+    const result = await res.json()
       
-      // signify we called it
-      console.log("Api Has just been called")
       
-      setPrice(result.eth)
-      const gas = result.gas / 1000000000;
-      setGas(Math.round(gas * 1) / 1)         
+    // set gas and eth price
+    setPrice(result.eth)
+    const gas = result.gas / 1000000000;
+    setGas(Math.round(gas * 1) / 1)         
       
-      if(gas > 120){setLevel("high 😡")}
-      else if(gas > 70){setLevel("medium 😐")}
-      else if(gas < 70){setLevel("low 😄")}
+    // set level acording to gas
+    if(gas > 120){setLevel("high 😡")}
+    else if(gas > 70){setLevel("medium 😐")}
+    else if(gas < 70){setLevel("low 😄")}
 
-      const timeAtfetch = new Date().getTime()
-      return timeAtfetch
+    // return time this function was called
+    const timeAtfetch = new Date().getTime()
+    return timeAtfetch
+    }
   }
 
 
   async function timeFunction(){
+    // grab the last time it was called
     let fetchedTime = await callApi()
+
+    // every second, figure out how long since last update- if more than 6 seconds, call the api again
     setInterval( async ()  => {
       const timeSince = Math.floor((Date.now() - fetchedTime) / 1000)
      
-      if(timeSince==6){fetchedTime = await callApi()}
+      if(timeSince >= 6){fetchedTime = await callApi()}
      
       setSecondsSince(timeSince)}, 1000);
   }
