@@ -104,11 +104,12 @@ export default function Home() {
       </div>
 
       <div className='pt-20 md:pt-24'>
+
         <div className=" text-center">
           <h1 className={`${dark ? 'text-gray-300' : 'text-black'} text-4xl md:text-6xl  font-bold `} >ETH Gas Tracker</h1>
           <p className={`${dark ? 'text-gray-300' : 'text-black'} font-semibold  text-xl md:text-3xl pt-2 `}>ETH Price ${price} USD</p>
         </div>
-    
+        
         <div className="grid place-content-center mt-8 mr-3 ml-3 ">
           <div className={`${dark ? 'border-gray-300' : 'border-black'} text-center border-solid px-9 py-8 md:px-32 md:py-18 rounded-3xl border-[6px]  w-fit  `} >
             <div className='flex'>
