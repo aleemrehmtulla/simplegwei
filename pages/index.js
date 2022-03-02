@@ -85,14 +85,14 @@ export default function Home() {
    
  
   return (
-    <div className={`${dark ? 'h-screen  bg-gray-900 w-screen grid' : 'h-screen  bg-gray-200 w-screen grid'} `} >
+    <div className={`${dark ? 'h-screen  bg-gray-900 w-screen ' : 'h-screen  bg-gray-200 w-screen '} `} >
       <Head>
         <title>ETH Gas Tracker | simplegwei</title>
         <meta name="description" content="Track the transaction fees of Ethereum using our simple and blazing fast gas tracker!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <div className="flex px-7 md:px-20 justify-end h-full">
+      <div className="flex px-7 md:px-20 pt-8 md:pt-12 justify-end h-fit">
         <button className='hover:cursor-pointer pr-6'> 
           <a target="_blank" rel="noreferrer" href='https://github.com/aleemrehmtulla/simplegwei'>
             <BsGithub size={40} className={`${dark ? 'fill-white' : 'fill-black'}`}/>
@@ -103,7 +103,7 @@ export default function Home() {
         </button>
       </div>
 
-      <div className='grid pb-[40%] md:pb-40 place-content-center'>
+      <div className='pt-20 md:pt-24'>
         <div className=" text-center">
           <h1 className={`${dark ? 'text-gray-300' : 'text-black'} text-4xl md:text-6xl  font-bold `} >ETH Gas Tracker</h1>
           <p className={`${dark ? 'text-gray-300' : 'text-black'} font-semibold  text-xl md:text-3xl pt-2 `}>ETH Price ${price} USD</p>
