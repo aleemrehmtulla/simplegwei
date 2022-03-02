@@ -1,11 +1,19 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import swal from 'sweetalert'
+import {BsFillMoonStarsFill} from 'react-icons/Bs'
 export default function Home() {
   const [gas, setGas] = useState("~~");
   const [price, setPrice] = useState("~~~.~~");
   const [level, setLevel] = useState("~~~ 😵‍💫");
   const [secondsSince, setSecondsSince] = useState("~");
+  const [dark, setDark] = useState(false);
+  
+  // enables dark mode
+  function darkMode(){
+    if(dark === false){setDark(true);}
+    else{setDark(false);}
+  }
   
   // declare your apikey
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
@@ -63,24 +71,36 @@ export default function Home() {
    
  
   return (
-    <div className='h-screen w-screen grid pb-20 md:pb-0  place-content-center bg-gray-200'>
+    <div className={`${dark ? 'h-screen  bg-gray-900 w-screen grid' : 'h-screen  bg-gray-200 w-screen grid'} `} >
       <Head>
         <title>ETH Gas Tracker | simplegwei</title>
         <meta name="description" content="Track the transaction fees of Ethereum using our simple and blazing fast gas tracker!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
+      <div className="flex    px-20  justify-end h-full">
+       <button className='hover:cursor-pointer' onClick={darkMode} >
+        <BsFillMoonStarsFill className={`${dark ? 'fill-white' : 'fill-black'} `} size={40}/>
+        </button>
+      </div>
+
+      <div className='grid pb-40 md:pb-40 place-content-center'>
+
+     
      
       <div className=" text-center">
-        <h1 className='text-4xl md:text-6xl  font-bold'>ETH Gas Tracker</h1>
-        <p className='font-semibold text-xl md:text-3xl pt-2'>ETH Price ${price} USD</p>
+        <h1 className={`${dark ? 'text-gray-300' : 'text-black'} text-4xl md:text-6xl  font-bold `} >ETH Gas Tracker</h1>
+        <p className={`${dark ? 'text-gray-300' : 'text-black'} font-semibold  text-xl md:text-3xl pt-2 `}>ETH Price ${price} USD</p>
       </div>
     
       <div className="grid place-content-center mt-8 mr-3 ml-3 ">
-        <div className='text-center border-solid px-9 py-8 md:px-32 md:py-18 rounded-3xl border-[6px] border-black  w-fit '>
-            <div className='flex'><h1 className='text-8xl md:font-bold font-semibold'>{gas}</h1><h1 className='text-7xl pt-3 pl-1'>⛽️</h1></div>
-            <p className='text-2xl w-full font-medium pt-4'>This is {level}</p>
-            <p className='pt-4'>Last updated {secondsSince} seconds ago</p> 
+        <div className={`${dark ? 'border-gray-300' : 'border-black'} text-center border-solid px-9 py-8 md:px-32 md:py-18 rounded-3xl border-[6px]  w-fit  `} >
+            <div className='flex'><h1 className={`${dark ? 'text-gray-300' : 'text-black'} text-8xl  md:font-bold font-semibold`}>{gas}</h1><h1 className='text-7xl pt-3 pl-1'>⛽️</h1></div>
+            <p className={`${dark ? 'text-gray-300' : 'text-black'} text-2xl w-full font-medium `} >This is {level}</p>
+            <p className={`${dark ? 'text-gray-300' : 'text-black'} pt-4`}>Last updated {secondsSince} seconds ago</p> 
+            
         </div>
+      </div>
       </div>
 
     </div>
