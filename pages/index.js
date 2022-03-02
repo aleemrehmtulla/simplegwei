@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import swal from 'sweetalert'
 import {BsFillMoonStarsFill} from 'react-icons/bs'
 export default function Home() {
+
   const [gas, setGas] = useState("~~");
   const [price, setPrice] = useState("~~~.~~");
   const [level, setLevel] = useState("~~~ 😵‍💫");
@@ -10,10 +11,26 @@ export default function Home() {
   const [dark, setDark] = useState(false);
   
   // enables dark mode
-  function darkMode(){
-    if(dark === false){setDark(true);}
-    else{setDark(false);}
-  }
+  function darkFunction(){
+
+      if(typeof window !== 'undefined'){
+        if(localStorage.getItem('dark') !== "dark on"){
+          localStorage.setItem('dark', "dark on");
+          setDark(true);
+        } else {
+          localStorage.setItem('dark', false);
+          setDark(false);
+        }
+      }
+}
+
+    useEffect(() => {
+      if(typeof window !== 'undefined'){
+        if(localStorage.getItem('dark') === "dark on"){setDark(true);}
+        else {setDark(false);}
+      }
+    }, [])
+
   
   // declare your apikey
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
@@ -68,6 +85,11 @@ export default function Home() {
     callApi()
     timeFunction()
   }, [])
+
+  // useEffect(() => {
+  //   localStorage.setItem("DARK_MODE", darkMode);
+  //   console.log(`Is in dark mode? ${darkMode}`);
+  // }, [darkMode]);
    
  
   return (
@@ -79,7 +101,7 @@ export default function Home() {
       </Head>
       
       <div className="flex    px-20  justify-end h-full">
-       <button className='hover:cursor-pointer' onClick={darkMode} >
+       <button className='hover:cursor-pointer' onClick={darkFunction} >
         <BsFillMoonStarsFill className={`${dark ? 'fill-white' : 'fill-black'} `} size={40}/>
         </button>
       </div>
