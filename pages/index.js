@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import swal from 'sweetalert'
-import {BsFillMoonStarsFill} from 'react-icons/Bs'
+import {BsFillMoonStarsFill} from 'react-icons/bs'
 export default function Home() {
   const [gas, setGas] = useState("~~");
   const [price, setPrice] = useState("~~~.~~");
