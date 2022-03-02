@@ -119,8 +119,8 @@ export default function Home() {
                 ⛽️
               </h1>
             </div>
-            <p className={`${dark ? 'text-gray-300' : 'text-black'} text-2xl w-full font-medium `} >This is {level}</p>
-            <p className={`${dark ? 'text-gray-300' : 'text-black'} pt-4`}>Last updated {secondsSince} seconds ago</p> 
+            <p className={`${dark ? 'text-gray-300' : 'text-black'} text-2xl pt-1 w-full font-medium `} >This is {level}</p>
+            <p className={`${dark ? 'text-gray-300' : 'text-black'} pt-1`}>Last updated {secondsSince} seconds ago</p> 
           </div>
         </div>
 
