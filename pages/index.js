@@ -112,7 +112,7 @@ export default function Home() {
         
         <div className="grid place-content-center mt-8 mr-3 ml-3 ">
           <div className={`${dark ? 'border-gray-300' : 'border-black'} text-center border-solid px-9 py-8 md:px-32 md:py-18 rounded-3xl border-[6px]  w-fit  `} >
-            <div className='flex'>
+            <div className='flex justify-center'>
               <h1 className={`${dark ? 'text-gray-300' : 'text-black'} text-8xl md:font-bold font-semibold`}>
                 {gas}
               </h1>
