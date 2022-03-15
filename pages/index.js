@@ -8,7 +8,7 @@ import axios from "axios";
 export default function Home() {
   // declare your apikeys
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-  const client = Amplitude.init("27e4bb5740f90c9c210d9ccd83dd13d0");
+  const client = Amplitude.init("172128a9fac6e93ac414a1ee22b3aafa");
 
   // declare all states (used to show data)
   const [gas, setGas] = useState("~~");
