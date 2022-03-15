@@ -8,7 +8,7 @@ import axios from "axios";
 export default function Home() {
   // declare your apikeys
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-  const client = Amplitude.init(process.env.NEXT_PUBLIC_AMPLITUDE_KEY);
+  const client = Amplitude.init("27e4bb5740f90c9c210d9ccd83dd13d0");
 
   // declare all states (used to show data)
   const [gas, setGas] = useState("~~");
@@ -34,8 +34,8 @@ export default function Home() {
   const setAnalytic = async () => {
     const res = await axios.get("https://geolocation-db.com/json/");
     client.logEvent({
-      event_type: "Page hit",
-      ip: res.data.IPv4,
+      event_type: 'Page Hit :)',
+      user_id: res.data.IPv4,
     });
   };
 
