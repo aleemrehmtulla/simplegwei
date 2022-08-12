@@ -34,7 +34,7 @@ export default function Home() {
   const setAnalytic = async () => {
     const res = await axios.get("https://geolocation-db.com/json/");
     client.logEvent({
-      event_type: 'Page Hit :)',
+      event_type: "Page Hit :)",
       user_id: res.data.IPv4,
     });
   };
@@ -59,8 +59,8 @@ export default function Home() {
 
       // set gas and eth price
       setPrice(result.eth);
-      const gas = result.gas / 1000000000;
-      setGas(Math.round(gas * 1) / 1);
+      const gas = result.gas;
+      setGas(gas);
 
       // set level acording to gas
       if (gas > 120) {
